@@ -19,6 +19,7 @@ The project has been developed and tested at **3440×1440 (21:9)**. Other ultraw
 | Rewind text, photo mode panels and waiting spinners | Adjusted for the wider UI canvas |
 | Car meet player list and vehicle information panels | Repositioned where appropriate |
 | FH2 Extra Options 0.2.98 | Optional compatibility adjustment supported |
+| Fast-travel loading screens | Adds black side bars around the original 16:9 loading video to hide the surrounding world while it loads during fast travel |
 
 ## Tested configurations
 
