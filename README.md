@@ -39,7 +39,7 @@ The project has been developed and tested at **3440×1440 (21:9)**. Other ultraw
 | Game | Forza Horizon 2 Presents Fast & Furious |
 | Package identity | `Spire_1.0.0.6_x64__8wekyb3d8bbwe` |
 | Tested resolution | 3440×1440 (21:9) |
-| Modified XAML files | 50 |
+| Modified XAML files | 51 |
 | Compatibility | Tested successfully |
 
 Both games have been tested with the modification.
