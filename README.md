@@ -150,7 +150,7 @@ Fast-travel loading screen masking
 - Hides the surrounding world while the destination loads outside the original 16:9 video area.
 - Keeps the loading transition visually consistent on ultrawide displays.
 
-The installer applies 49 XAML modifications to Forza Horizon 2 and 50 to Fast & Furious.
+The installer applies 50 XAML modifications to Forza Horizon 2 and 52 to Fast & Furious.
 
 ### Why a normal ZIP tool cannot be used
 
