@@ -144,6 +144,12 @@ The installer rebuilds the game's `UI.zip` with the required custom archive layo
 - World markers, nameplates, event titles and result overlays are repositioned to compensate for the changed UI centre.
 - Additional panels, prompts and overlays are adjusted where necessary.
 
+Fast-travel loading screen masking
+
+- Adds black side bars around the original 16:9 loading video during fast travel.
+- Hides the surrounding world while the destination loads outside the original 16:9 video area.
+- Keeps the loading transition visually consistent on ultrawide displays.
+
 The installer applies 49 XAML modifications to Forza Horizon 2 and 50 to Fast & Furious.
 
 ### Why a normal ZIP tool cannot be used
