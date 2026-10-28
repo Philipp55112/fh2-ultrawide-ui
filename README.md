@@ -2,6 +2,8 @@
 
 **True 21:9 ultrawide UI support for Forza Horizon 2, Forza Horizon 2 Presents Fast & Furious, and Forza Motorsport 5 running on PC through Azimuth.**
 
+See [CHANGELOG.md](CHANGELOG.md) for the complete version history.
+
 The Forza 21:9 Ultrawide Patch adjusts the games' user interfaces for ultrawide displays, providing a wider HUD while keeping menus and other 16:9 content properly centered.
 
 The project currently supports **Forza Horizon 2**, **Forza Horizon 2 Presents Fast & Furious**, and **Forza Motorsport 5** using a single Azimuth 1.0.2 or 1.0.3 installation.
