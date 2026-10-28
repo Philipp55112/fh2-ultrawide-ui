@@ -4,78 +4,107 @@
 
 See [CHANGELOG.md](CHANGELOG.md) for the complete version history.
 
-The Forza 21:9 Ultrawide Patch adjusts the games' user interfaces for ultrawide displays, providing a wider HUD while keeping menus and other 16:9 content properly centered.
+The Forza 21:9 Ultrawide Patch adapts the games' user interfaces for ultrawide displays, providing a wider HUD while keeping supported menus and other 16:9 content properly centred.
 
-The project currently supports **Forza Horizon 2**, **Forza Horizon 2 Presents Fast & Furious**, and **Forza Motorsport 5** using a single Azimuth 1.0.2 or 1.0.3 installation.
+The project supports **Forza Horizon 2**, **Forza Horizon 2 Presents Fast & Furious**, and **Forza Motorsport 5** using Azimuth **1.0.2 or 1.0.3**.
 
-Support for **Forza Horizon 3** and **Forza Motorsport 6** is in development.
+Support for **Forza Horizon 3** and **Forza Motorsport 6** is planned for future releases.
 
 ## Features
 
-| Feature                            | Description                                                                                                                        |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Ultrawide HUD                      | Repositions UI elements to make better use of 21:9 displays                                                                        |
-| Centered menus                     | Keeps menus and other interface elements centered instead of stretching the entire UI across the screen                            |
-| Per-game configuration             | Enables or disables the patch individually for each supported title                                                                |
-| Fast-travel loading screen masking | Adds black side bars around the original 16:9 loading video to hide the surrounding world while it loads during fast travel in FH2 |
-| FM5 UI corrections                 | Fixes UI clipping, scaling, screen-copy effects and other ultrawide-related issues                                                 |
-| Original executable preserved      | Keeps `azimuth.exe` unmodified                                                                                                     |
-| Automatic backups                  | Saves original files before applying modifications                                                                                 |
-| Installer and uninstaller          | Supports installation, updates and removal of the patch                                                                            |
+| Feature | Description |
+| --- | --- |
+| Ultrawide HUD | Repositions UI elements to make better use of ultrawide displays |
+| Resolution-aware UI | Calculates the appropriate UI layout for the selected resolution during installation |
+| Centred menus | Keeps supported menus, dialogs, videos and loading screens centred instead of stretching the entire UI |
+| Per-game configuration | Enables or disables the patch individually for each supported title |
+| FM5 full frame rate | Prevents the game from halving the configured frame rate in the garage and pre-race screens |
+| FM5 main menu fixes | Corrects the animated header lines and right-side dot pattern |
+| Fast-travel loading screen masking | Adds black side bars around the original 16:9 loading video in FH2 |
+| Optional desktop shortcuts | Creates shortcuts that launch individual games directly without opening the Azimuth launcher |
+| Original executable preserved | Keeps `azimuth.exe` unmodified |
+| Automatic backups | Verifies original files using SHA-256 and backs them up before modification |
+| Installer and uninstaller | Supports installation, updates, game selection and restoration of original files |
 
 ## Supported Games
 
-| Game                                    | Status          | Resolution support             |
-| --------------------------------------- | --------------- | ------------------------------ |
-| Forza Horizon 2                         | Supported       | Ultrawide resolutions          |
-| Forza Horizon 2 Presents Fast & Furious | Supported       | Ultrawide resolutions          |
-| Forza Motorsport 5                      | Initial support | Currently limited to 3440×1440 |
-| Forza Horizon 3                         | In development  | Coming soon                    |
-| Forza Motorsport 6                      | In development  | Coming soon                    |
+| Game | Version | Status | Resolution support |
+| --- | --- | --- | --- |
+| Forza Horizon 2 | `1.0.0.64` | Supported | Ultrawide resolutions |
+| Forza Horizon 2 Presents Fast & Furious | `1.0.0.6` | Supported | Ultrawide resolutions |
+| Forza Motorsport 5 | `1.0.0.20` | Supported | Resolution calculated during installation |
+| Forza Horizon 3 | — | Planned | Future release |
+| Forza Motorsport 6 | — | Planned | Future release |
 
-FH2 and Fast & Furious adapt to different ultrawide resolutions. FM5 currently has a dedicated fix for 3440×1440, with broader resolution support in development.
+FH2 and Fast & Furious adapt to different ultrawide resolutions.
+
+For FM5, the UI layout is now generated during installation for the selected resolution instead of being fixed to 3440×1440. Resolutions such as 2560×1080, 3440×1440 and 3840×1600 are supported by the layout calculations. 32:9 is theoretically supported, but resolutions other than 3440×1440 have not all been tested.
 
 ## Requirements
 
 - Windows PC
+- A compatible installation of a supported game
 - Azimuth **1.0.2 or 1.0.3**
-- A compatible installation of the supported game
 - An ultrawide display for the intended 21:9 experience
+- Sufficient free disk space for backups and modified UI files
 
 ## Installation
 
-Two installation packages are available.
+Two installation packages are available in the Releases section.
 
 ### Option 1: Standalone EXE installer
 
 Run `Forza21x9_Setup.exe`.
 
-The installer provides a graphical interface to:
+The installer allows you to:
 
 - Select the Azimuth installation folder.
-- Configure the target resolution.
-- Enable or disable the patch for individual games.
+- Select the target resolution.
+- Enable or disable the patch for each supported game individually.
+- Optionally create desktop shortcuts for configured games.
 - Install or update the patch.
-- Uninstall all patch modifications.
+- Uninstall the patch and restore original files.
 
-The installer creates backups of original files before applying changes.
+The installer verifies the expected original files using SHA-256 and creates backups before applying modifications.
 
 ### Option 2: Classic ZIP package
 
-The classic ZIP package contains the batch files and supporting scripts for the traditional installation method.
+The classic ZIP package contains the English batch installer and uninstaller, along with the required scripts and supporting files.
 
 1. Extract the ZIP package.
-2. Follow the included instructions.
-3. Run the appropriate batch file for the operation you want to perform.
-4. Keep the generated backups until you have verified that everything works correctly.
+2. Run `Install.bat`.
+3. Select your Azimuth installation folder using the folder picker.
+4. Select your target resolution.
+5. Choose whether to install the patch for each supported game.
+6. Follow the instructions displayed by the installer.
 
-Always read the instructions included with the package before installing or updating.
+To remove the patch, run `Uninstall.bat`.
+
+The installer preserves backups so that the original files can be restored. Keep the backup folder until you have verified that the original installation has been restored successfully.
+
+## Optional Desktop Shortcuts
+
+The installer can create desktop shortcuts for each configured game using the corresponding game logo as its icon.
+
+These shortcuts launch the selected game directly without opening the Azimuth launcher. The launch commands use Azimuth's game selection and launcher-skipping arguments.
+
+Examples:
+
+- Forza Horizon 2: `azimuth.exe --game=fh2 --skip-launcher`
+- Forza Horizon 2 Presents Fast & Furious: `azimuth.exe --game=fh2-ff --skip-launcher`
+- Forza Motorsport 5: `azimuth.exe --game=fm5 --skip-launcher`
+
+The shortcuts are optional and are removed by the uninstaller.
 
 ## Configuration
 
-The patch uses `azimuth_21x9.ini` to configure the UI width and enable or disable support for individual titles.
+The patch uses `azimuth_21x9.ini` for additional settings.
 
-Example:
+### Per-game configuration
+
+The installer lets you enable or disable the patch for each supported title individually. Disabled games have their original UI restored.
+
+The following identifiers illustrate the title configuration concept; use the identifiers and options supplied by the actual installer and package version.
 
 ```ini
 [ui]
@@ -89,45 +118,58 @@ fh3=0
 fm6=0
 ```
 
-The title identifiers above illustrate the configuration concept. Use the identifiers and options provided by the actual installer and package version.
+The UI width shown is an example for a 3440×1440 display, based on the original 1920-pixel-wide 16:9 reference UI. The installer calculates the appropriate layout for the selected resolution.
 
-The default UI width of `2580` corresponds to a 21:9 layout based on a 1920-pixel-wide 16:9 reference UI.
+### Forza Motorsport 5 full frame rate
 
-Unknown or disabled titles retain their original behavior.
+FM5 normally halves the configured frame rate in the garage and pre-race screens. The patch prevents this behavior so both screens can run at the full configured frame rate.
+
+To disable this correction, set `full_rate=0` under the `[fm5]` section in `azimuth_21x9.ini`:
+
+```ini
+[fm5]
+full_rate=0
+```
+
+Use the configuration file and section supplied with your installed version.
 
 ## How It Works
 
 ### In-memory Azimuth patching
 
-Unlike approaches that modify the Azimuth executable directly, this patch leaves `azimuth.exe` unchanged.
+The patch leaves `azimuth.exe` unchanged.
 
-A `dinput8.dll` proxy is placed next to `azimuth.exe`. Since Azimuth imports `DINPUT8.dll`, the proxy can load automatically, forward `DirectInput8Create` to the original Windows system DLL and apply the necessary patches in memory.
+A `dinput8.dll` proxy is placed alongside `azimuth.exe`. Since Azimuth imports `DINPUT8.dll`, the proxy can load automatically, forward `DirectInput8Create` to the original Windows system DLL, and apply the necessary patches in memory.
 
-The patch identifies the active game using its executable image metadata, with a configuration fallback. It then enables the appropriate UI modifications for that title.
+The patch identifies the active game and enables the appropriate modifications for that title.
 
-This approach preserves compatibility with hash checks used by Azimuth and FH2 Extra Options.
+This approach preserves compatibility with Azimuth executable integrity checks and FH2 Extra Options.
 
 ### UI layout modifications
 
 The patch modifies the games' XAML-based UI layouts inside `Mount\media\UI.zip`.
 
-The modified archives are rebuilt from the original UI files using predefined operations that verify the expected original data before replacing it.
+The modified archives are rebuilt from the original UI files using predefined operations that verify expected original data before replacing it.
 
 Forza's custom ZIP layout uses an additional central-directory field (`0x1123`) containing absolute data offsets. The patch preserves this structure and updates the relevant `zipmanifest.xml` directory information.
 
+The patch does not include any game files or Azimuth files.
+
 ### Forza Motorsport 5 fixes
 
-FM5 requires additional corrections beyond the standard UI-width changes, including:
+FM5 requires additional corrections beyond standard UI-width adjustments, including:
 
 - Adjustments to the UI root size.
 - Corrections to UI clipping and aspect handling.
-- Changes to the screen-copy helpers used for effects such as glass backgrounds and blur.
+- Changes to screen-copy helpers used for effects such as glass backgrounds and blur.
 - Adjustments to UI frame dimensions.
 - An additional effect-pool correction.
+- Corrections to the animated header lines and dot pattern in the main menu.
+- A full-frame-rate correction for the garage and pre-race screens.
 
-These modifications are applied in memory and only when FM5 support is enabled.
+The UI layout is generated during installation for the selected resolution. Runtime modifications are applied only when FM5 support is enabled.
 
-The current FM5 implementation is limited to 3440×1440. The intro videos and map loading screen remain in their original 16:9 format.
+Intro videos and the map loading screen remain in their original 16:9 format.
 
 ## Backups and Uninstallation
 
@@ -135,20 +177,26 @@ The installer backs up original files to:
 
 `<Azimuth folder>\Forza21x9_backup\`
 
-The backup includes the original files required to restore the installation.
+Original files are verified using SHA-256 before modifications are applied. The backup contains the files required to restore the original installation.
 
-Use the included uninstaller to remove the patch and restore the backed-up files. Do not delete the backup folder until you have confirmed that the original installation has been restored successfully.
+Use the included uninstaller to remove the patch and restore the backed-up files. The uninstaller also removes the optional desktop shortcuts created by the installer.
+
+Do not delete the backup folder until you have confirmed that the original installation has been restored successfully.
 
 The patch should be configured separately for each Azimuth installation you use.
 
 ## Known Issues and Limitations
 
+### Resolution testing
+
+- **3440×1440 (21:9)** is the primary tested resolution.
+- Other resolutions are calculated during installation but have not all been tested.
+- 32:9 support is theoretical and has not been confirmed through testing.
+
 ### Forza Motorsport 5
 
-- The current ultrawide UI fix supports **3440×1440 only**.
-- Frame-rate drops have been observed in the garage and pre-race screen.
-- The cause of the performance drops is still under investigation. It is not yet clear whether they are caused by the patch, Azimuth or an interaction between the two.
-- The intro videos and map loading screen remain 16:9.
+- Intro videos and the map loading screen remain in their original 16:9 format.
+- Performance and compatibility may vary depending on the game, Azimuth version and configuration.
 
 ### General
 
@@ -162,9 +210,8 @@ Planned improvements include:
 
 - Forza Horizon 3 support.
 - Forza Motorsport 6 support.
-- Additional FM5 ultrawide resolutions.
-- Further compatibility and performance testing.
-- A shareable build that does not bundle original game files.
+- Further resolution compatibility testing.
+- Additional compatibility improvements and testing.
 
 ## Credits
 
@@ -182,6 +229,8 @@ Use the patch at your own risk. Always keep backups of your original files.
 
 GitHub repository:
 
-[https://github.com/Philipp55112/fh2-ultrawide-ui](https://github.com/Philipp55112/fh2-ultrawide-ui)
+https://github.com/Philipp55112/fh2-ultrawide-ui
+
+See [CHANGELOG.md](CHANGELOG.md) for the complete version history.
 
 Bug reports, feedback and testing at additional ultrawide resolutions are welcome!
