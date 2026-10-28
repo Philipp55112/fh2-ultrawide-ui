@@ -2,6 +2,16 @@
 
 All notable changes to the Forza 21:9 Ultrawide Patch are documented here.
 
+## [v1.2.1] — FM5 Vehicle Image Aspect Ratio Fix
+
+### Fixed
+- Fixed horizontally stretched vehicle images in the **Car Dealer**, **My Cars**, **Marketplace**, and **livery selection popup** in Forza Motorsport 5.
+- Removed the additional width correction from these locations because Azimuth 1.0 already renders the images with the correct aspect ratio.
+- Preserved the width correction for vehicle images in **Free Play, multiplayer lobbies, player cards, lobby garage popups, Hopper selection, and profiles**, where the game still renders images too narrow.
+
+### Other Changes
+- No other changes compared to v1.2.0.
+
 ## [v1.2.0] — Expanded Ultrawide Support & Quality of Life Improvements
 
 ### Added
